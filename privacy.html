@@ -44,17 +44,18 @@
     <p>Keepra — приложение для отслеживания привычек и рутин. Мы сделали его так, чтобы ваши данные оставались вашими.</p>
 
     <h2>Какие данные обрабатывает приложение</h2>
-    <p>Keepra хранит только то, что вы вносите сами: названия привычек и рутин, категории, интервалы, отметки о выполнении и настройки. Регистрация и аккаунт не требуются.</p>
+    <p>Keepra хранит то, что вы вносите сами: названия привычек и рутин, категории, интервалы, отметки о выполнении и настройки, а также — по желанию — данные профиля (возраст и пол). Регистрация не требуется; вход в Google-аккаунт нужен только для облачной синхронизации.</p>
 
     <h2>Где хранятся данные</h2>
-    <p>Все данные хранятся локально на вашем устройстве. У нас нет сервера, на который они копируются, и мы не имеем к ним доступа.</p>
-    <!-- TODO: если есть iCloud/Google-бэкап или синхронизация — опишите здесь. Пример:
-    <p>Если вы включили резервное копирование iCloud, копия данных приложения попадает в ваш личный iCloud в соответствии с политикой Apple.</p> -->
+    <p>Без входа в Google данные хранятся локально на устройстве. При входе в Google Keepra создаёт резервную копию рутин, привычек, категорий, профиля и истории в скрытой папке приложения (appDataFolder) на личном Google Drive пользователя для синхронизации между устройствами.</p>
+    <p>У нас нет собственного сервера: резервная копия хранится в вашем личном Google-аккаунте, и мы не имеем к ней доступа.</p>
 
     <h2>Советы с ИИ</h2>
     <p>Базовые подсказки анализируют ваши данные прямо на устройстве и не требуют интернета.</p>
-    <p>Советы с использованием ИИ — необязательная функция, которую вы включаете вручную. Когда она включена, для формирования совета приложение отправляет провайдеру ИИ обезличенные данные о ваших привычках и рутинах (названия, интервалы, статистику выполнения). Эти данные не содержат вашего имени, контактов или идентификаторов устройства и используются только для генерации совета.</p>
-    <!-- TODO: укажите провайдера (например, OpenAI) и ссылку на его политику. Проверьте, что описание соответствует реальной реализации: что именно уходит в запросе. -->
+    <p>AI-рекомендации — дополнительная функция. Перед её первым использованием Keepra сообщает, какие данные будут переданы, и запрашивает ваше подтверждение.</p>
+    <p>Для подготовки рекомендаций Keepra отправляет в OpenAI API названия рутин, категорий и привычек, их расписание и статус выполнения, а также ранее отклонённые рекомендации. Текст заметок не передаётся; может передаваться только признак наличия заметки. Если вы включили рекомендации с учётом профиля и указали эти данные, также передаются возраст и пол.</p>
+    <p>Имя, email, данные Google-аккаунта, точная дата рождения и идентификаторы устройства в AI-запрос не включаются. Переданные данные используются только для создания рекомендаций. Вы можете отключить AI-рекомендации в любой момент в Настройки → Советы от Keepra; после этого новые данные не отправляются.</p>
+    <p>Обработчик AI: OpenAI. По умолчанию данные API не используются OpenAI для обучения моделей, однако API-контент может временно храниться в журналах безопасности согласно политике OpenAI. Подробнее: <a href="https://platform.openai.com/docs/guides/your-data" target="_blank" rel="noopener">OpenAI API data controls</a>.</p>
 
     <h2>Уведомления</h2>
     <p>Напоминания планируются и показываются локально на устройстве. Для них не используются сторонние push-сервисы с передачей ваших данных.</p>
@@ -65,10 +66,10 @@
     <p>Приложение не использует сторонние трекеры.</p>
 
     <h2>Удаление данных</h2>
-    <p>Все данные удаляются вместе с приложением. Отдельные привычки, рутины и историю можно удалить внутри приложения в любой момент.</p>
+    <p>Удаление приложения удаляет локальные данные с устройства. Если вы включали облачную синхронизацию, резервная копия в Google Drive может сохраняться отдельно; порядок её удаления указан в Настройки → Личный профиль. Отдельные привычки, рутины и историю можно удалить внутри приложения в любой момент.</p>
 
     <h2>Дети</h2>
-    <p>Приложение не собирает персональные данные и не содержит контента, требующего возрастных ограничений.</p>
+    <p>Приложение не предназначено специально для детей и не содержит контента, требующего возрастных ограничений. Keepra сознательно не собирает данные детей; возраст и пол в профиле указываются добровольно.</p>
 
     <h2>Изменения политики</h2>
     <p>При изменении политики мы обновим эту страницу и дату вверху.</p>
@@ -87,16 +88,18 @@
     <p>Keepra is a habit and routine tracker. It is built so that your data stays yours.</p>
 
     <h2>What data the app processes</h2>
-    <p>Keepra stores only what you enter yourself: habit and routine names, categories, intervals, completion marks, and settings. No registration or account is required.</p>
+    <p>Keepra stores what you enter yourself: habit and routine names, categories, intervals, completion marks, and settings, as well as optional profile details (age and gender). No registration is required; signing in with Google is only needed for cloud sync.</p>
 
     <h2>Where data is stored</h2>
-    <p>All data is stored locally on your device. There is no server it is copied to, and we have no access to it.</p>
-    <!-- TODO: if iCloud/Google backup or sync exists, describe it here. -->
+    <p>Without signing in to Google, your data is stored locally on your device. When you sign in with Google, Keepra backs up your routines, habits, categories, profile, and history to the app's hidden folder (appDataFolder) in your personal Google Drive to sync between devices.</p>
+    <p>We run no server of our own: the backup lives in your personal Google account, and we have no access to it.</p>
 
     <h2>AI suggestions</h2>
     <p>Basic insights are computed on your device and work offline.</p>
-    <p>AI-powered suggestions are an optional feature you enable manually. When enabled, the app sends anonymized data about your habits and routines (names, intervals, completion statistics) to an AI provider to generate a suggestion. This data contains no name, contacts, or device identifiers and is used solely to generate the suggestion.</p>
-    <!-- TODO: name the provider and link its policy; verify the description matches the actual request payload. -->
+    <p>AI-powered suggestions are an optional feature. Before the first use, Keepra explains what data will be shared and asks for your confirmation.</p>
+    <p>To generate suggestions, Keepra sends the names of routines, categories, and habits, their schedules and completion status, and previously dismissed suggestions to the OpenAI API. Note text is not sent; only whether a note exists may be included. If you enable profile-based recommendations and provide this information, age and gender may also be sent.</p>
+    <p>Your name, email address, Google account data, exact date of birth, and device identifiers are not included in AI requests. The shared data is used solely to generate suggestions. You can disable AI suggestions at any time in Settings → Keepra Tips; no new data will be sent after that.</p>
+    <p>AI provider: OpenAI. By default, OpenAI does not use API data to train its models, although API content may be temporarily retained in safety logs under OpenAI's policies. Learn more: <a href="https://platform.openai.com/docs/guides/your-data" target="_blank" rel="noopener">OpenAI API data controls</a>.</p>
 
     <h2>Notifications</h2>
     <p>Reminders are scheduled and shown locally on the device. No third-party push services receive your data for this.</p>
@@ -107,10 +110,10 @@
     <p>The app uses no third-party trackers.</p>
 
     <h2>Data deletion</h2>
-    <p>All data is removed when the app is deleted. Individual habits, routines, and history can be deleted inside the app at any time.</p>
+    <p>Deleting the app removes local data from your device. If you enabled cloud sync, the backup in Google Drive may remain separately; how to delete it is described in Settings → Personal profile. Individual habits, routines, and history can be deleted inside the app at any time.</p>
 
     <h2>Children</h2>
-    <p>The app collects no personal data and contains no age-restricted content.</p>
+    <p>The app is not specifically directed at children and contains no age-restricted content. Keepra does not knowingly collect data from children; age and gender in the profile are provided voluntarily.</p>
 
     <h2>Policy changes</h2>
     <p>If this policy changes, we will update this page and the date above.</p>
