@@ -39,34 +39,45 @@
   <!-- ═══════════ RU ═══════════ -->
   <div class="card">
     <h1>Политика конфиденциальности</h1>
-    <div class="date">Обновлено: <!-- TODO: дата публикации -->июль 2026</div>
+    <div class="date">Обновлено: ноябрь 2026</div>
 
-    <p>Keepra — приложение для отслеживания привычек и рутин. Мы сделали его так, чтобы ваши данные оставались вашими.</p>
+    <p>Keepra — приложение для отслеживания рутин, привычек и целей. Мы сделали его так, чтобы ваши данные оставались вашими.</p>
 
     <h2>Какие данные обрабатывает приложение</h2>
-    <p>Keepra хранит то, что вы вносите сами: названия привычек и рутин, категории, интервалы, отметки о выполнении и настройки, а также — по желанию — данные профиля (возраст и пол). Регистрация не требуется; вход в Google-аккаунт нужен только для облачной синхронизации.</p>
+    <p>Keepra хранит то, что вы вносите сами:</p>
+    <ul>
+      <li>названия рутин, привычек и целей, категории, интервалы, шаги целей и отметки о выполнении;</li>
+      <li>настройки уведомлений и предпочтения приложения;</li>
+      <li>по желанию — данные профиля (имя, возраст, пол).</li>
+    </ul>
+    <p>Регистрация не требуется. Вход в Google-аккаунт нужен только для облачной синхронизации.</p>
 
     <h2>Где хранятся данные</h2>
-    <p>Без входа в Google данные хранятся локально на устройстве. При входе в Google Keepra создаёт резервную копию рутин, привычек, категорий, профиля и истории в скрытой папке приложения (appDataFolder) на личном Google Drive пользователя для синхронизации между устройствами.</p>
+    <p>Без входа в Google все данные хранятся локально на устройстве.</p>
+    <p>При входе в Google Keepra создаёт резервную копию рутин, привычек, целей, категорий, профиля и истории в скрытой папке приложения (appDataFolder) на личном Google Drive пользователя для синхронизации между устройствами. Синхронизация происходит при запуске приложения, после изменений и по расписанию.</p>
     <p>У нас нет собственного сервера: резервная копия хранится в вашем личном Google-аккаунте, и мы не имеем к ней доступа.</p>
+
+    <h2>Авторизация через Google</h2>
+    <p>Keepra запрашивает доступ к Google Drive только в рамках скрытой папки приложения (scope: <code>drive.appdata</code>). Приложение не имеет доступа к вашим обычным файлам на Google Drive. Также запрашиваются базовые данные профиля (имя, email) для отображения информации об аккаунте в приложении.</p>
 
     <h2>Советы с ИИ</h2>
     <p>Базовые подсказки анализируют ваши данные прямо на устройстве и не требуют интернета.</p>
-    <p>AI-рекомендации — дополнительная функция. Перед её первым использованием Keepra сообщает, какие данные будут переданы, и запрашивает ваше подтверждение.</p>
+    <p>AI-рекомендации — дополнительная функция. Перед первым использованием Keepra сообщает, какие данные будут переданы, и запрашивает ваше подтверждение.</p>
     <p>Для подготовки рекомендаций Keepra отправляет в OpenAI API названия рутин, категорий и привычек, их расписание и статус выполнения, а также ранее отклонённые рекомендации. Текст заметок не передаётся; может передаваться только признак наличия заметки. Если вы включили рекомендации с учётом профиля и указали эти данные, также передаются возраст и пол.</p>
     <p>Имя, email, данные Google-аккаунта, точная дата рождения и идентификаторы устройства в AI-запрос не включаются. Переданные данные используются только для создания рекомендаций. Вы можете отключить AI-рекомендации в любой момент в Настройки → Советы от Keepra; после этого новые данные не отправляются.</p>
     <p>Обработчик AI: OpenAI. По умолчанию данные API не используются OpenAI для обучения моделей, однако API-контент может временно храниться в журналах безопасности согласно политике OpenAI. Подробнее: <a href="https://platform.openai.com/docs/guides/your-data" target="_blank" rel="noopener">OpenAI API data controls</a>.</p>
 
     <h2>Уведомления</h2>
-    <p>Напоминания планируются и показываются локально на устройстве. Для них не используются сторонние push-сервисы с передачей ваших данных.</p>
+    <p>Напоминания (утренняя сводка, вечерние напоминания, уведомления о просроченных рутинах и привычках) планируются и показываются локально на устройстве. Для них не используются сторонние push-сервисы с передачей ваших данных.</p>
+
+    <h2>Виджеты</h2>
+    <p>Виджеты домашнего экрана отображают срочные рутины и позволяют отмечать выполнение. Данные виджетов хранятся локально на устройстве и не передаются третьим сторонам.</p>
 
     <h2>Аналитика и реклама</h2>
-    <p>Keepra не показывает рекламу и не передаёт данные рекламным сетям.</p>
-    <!-- TODO: если используете крэш-репорты или аналитику (Firebase, Sentry и т.п.) — честно опишите здесь. Если нет — можно усилить: -->
-    <p>Приложение не использует сторонние трекеры.</p>
+    <p>Keepra не показывает рекламу и не передаёт данные рекламным сетям. Приложение не использует сторонние трекеры.</p>
 
     <h2>Удаление данных</h2>
-    <p>Удаление приложения удаляет локальные данные с устройства. Если вы включали облачную синхронизацию, резервная копия в Google Drive сохраняется отдельно; удалить её можно в приложении: Настройки → Профиль → Выйти из аккаунта → «Удалить облачную копию». Отдельные привычки, рутины и историю можно удалить внутри приложения в любой момент.</p>
+    <p>Удаление приложения удаляет локальные данные с устройства. Если вы включали облачную синхронизацию, резервная копия в Google Drive сохраняется отдельно; удалить её можно в приложении: Настройки → Профиль → Выйти из аккаунта → «Удалить облачную копию». Отдельные привычки, рутины, цели и историю можно удалить внутри приложения в любой момент.</p>
 
     <h2>Дети</h2>
     <p>Приложение не предназначено специально для детей и не содержит контента, требующего возрастных ограничений. Keepra сознательно не собирает данные детей; возраст и пол в профиле указываются добровольно.</p>
@@ -75,7 +86,7 @@
     <p>При изменении политики мы обновим эту страницу и дату вверху.</p>
 
     <h2>Связь</h2>
-    <p>Вопросы о конфиденциальности: <a href="mailto:support.keepra@gmail.com">support.keepra@gmail.com</a><!-- TODO: реальная почта --></p>
+    <p>Вопросы о конфиденциальности: <a href="mailto:support.keepra@gmail.com">support.keepra@gmail.com</a></p>
   </div>
 
   <div class="divider"></div>
@@ -83,16 +94,26 @@
   <!-- ═══════════ EN ═══════════ -->
   <div class="card">
     <h1>Privacy Policy</h1>
-    <div class="date">Last updated: <!-- TODO -->July 2026</div>
+    <div class="date">Last updated: November 2026</div>
 
-    <p>Keepra is a habit and routine tracker. It is built so that your data stays yours.</p>
+    <p>Keepra is a routine, habit, and goal tracker. It is built so that your data stays yours.</p>
 
     <h2>What data the app processes</h2>
-    <p>Keepra stores what you enter yourself: habit and routine names, categories, intervals, completion marks, and settings, as well as optional profile details (age and gender). No registration is required; signing in with Google is only needed for cloud sync.</p>
+    <p>Keepra stores what you enter yourself:</p>
+    <ul>
+      <li>routine, habit, and goal names, categories, intervals, goal steps, and completion marks;</li>
+      <li>notification settings and app preferences;</li>
+      <li>optionally — profile details (name, age, gender).</li>
+    </ul>
+    <p>No registration is required. Signing in with Google is only needed for cloud sync.</p>
 
     <h2>Where data is stored</h2>
-    <p>Without signing in to Google, your data is stored locally on your device. When you sign in with Google, Keepra backs up your routines, habits, categories, profile, and history to the app's hidden folder (appDataFolder) in your personal Google Drive to sync between devices.</p>
+    <p>Without signing in to Google, all data is stored locally on your device.</p>
+    <p>When you sign in with Google, Keepra backs up your routines, habits, goals, categories, profile, and history to the app's hidden folder (appDataFolder) in your personal Google Drive to sync between devices. Sync happens on app launch, after changes, and on a schedule.</p>
     <p>We run no server of our own: the backup lives in your personal Google account, and we have no access to it.</p>
+
+    <h2>Google authorization</h2>
+    <p>Keepra requests access to Google Drive limited to the app's hidden folder only (scope: <code>drive.appdata</code>). The app has no access to your regular Google Drive files. Basic profile information (name, email) is also requested to display account info within the app.</p>
 
     <h2>AI suggestions</h2>
     <p>Basic insights are computed on your device and work offline.</p>
@@ -102,15 +123,16 @@
     <p>AI provider: OpenAI. By default, OpenAI does not use API data to train its models, although API content may be temporarily retained in safety logs under OpenAI's policies. Learn more: <a href="https://platform.openai.com/docs/guides/your-data" target="_blank" rel="noopener">OpenAI API data controls</a>.</p>
 
     <h2>Notifications</h2>
-    <p>Reminders are scheduled and shown locally on the device. No third-party push services receive your data for this.</p>
+    <p>Reminders (morning digest, evening reminders, overdue alerts for routines and habits) are scheduled and shown locally on the device. No third-party push services receive your data for this.</p>
+
+    <h2>Widgets</h2>
+    <p>Home screen widgets display urgent routines and allow marking them done. Widget data is stored locally on the device and is not shared with third parties.</p>
 
     <h2>Analytics and ads</h2>
-    <p>Keepra shows no ads and shares no data with ad networks.</p>
-    <!-- TODO: disclose crash reporting / analytics if used. -->
-    <p>The app uses no third-party trackers.</p>
+    <p>Keepra shows no ads and shares no data with ad networks. The app uses no third-party trackers.</p>
 
     <h2>Data deletion</h2>
-    <p>Deleting the app removes local data from your device. If you enabled cloud sync, the backup in Google Drive remains separately; you can delete it in the app: Settings → Profile → Sign out → "Delete cloud backup". Individual habits, routines, and history can be deleted inside the app at any time.</p>
+    <p>Deleting the app removes local data from your device. If you enabled cloud sync, the backup in Google Drive remains separately; you can delete it in the app: Settings → Profile → Sign out → "Delete cloud backup". Individual habits, routines, goals, and history can be deleted inside the app at any time.</p>
 
     <h2>Children</h2>
     <p>The app is not specifically directed at children and contains no age-restricted content. Keepra does not knowingly collect data from children; age and gender in the profile are provided voluntarily.</p>
